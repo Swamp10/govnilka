@@ -1,0 +1,13 @@
+{% extends 'ww.html'%}
+<body>
+{% block content %}
+<p style="text-align: center">
+    <img width="300px" height="300px" src="{{ weather_image }}"></p>
+
+<p style="text-align: center">Weather in {{word}}</p>
+<p style="text-align: center">Temperature today {{temp}}</p>
+<p style="text-align: center">State today {{sos}}</p>
+
+{% endblock %}
+</body>
+</html>
