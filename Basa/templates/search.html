@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+    {% for line in finded %}
+        <p style="text-align:center">id: {{line[0]}}, comment: {{line[2]}}, time: {{line[3]}} <a href="/deleted?id={{line[0]}}">Удалить</a></p>
+        <p style="text-align: center"><img src="{{line[1]}}"></p>
+        <br><br><br>
+    {% endfor %}
+</body>
+</html>

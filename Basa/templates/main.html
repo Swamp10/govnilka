@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lents</title>
+</head>
+<body>
+<p style="text-align:center;"><strong>MEMES</strong></p>
+<form action="/finder">
+<p style="text-align:center">Поиск по коменту<input name="find"><button>Найти</button></p>
+</form>
+<form action="/add">
+    <button>Add Meme</button>
+        </form>
+
+    {% for line in lenta %}
+        <p style="text-align:center">id: {{line[0]}}, comment: {{line[2]}}, time: {{line[3]}} <a href="/deleted?id={{line[0]}}">Удалить</a></p>
+        <p style="text-align: center"><img src="{{line[1]}}"></p>
+        <br><br><br>
+    {% endfor %}
+
+</body>
+</html>
