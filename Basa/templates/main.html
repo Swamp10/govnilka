@@ -1,23 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Lents</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/person-male.png"
+          type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" crossorigin="anonymous">
+    <title>GoTo_people</title>
 </head>
 <body>
-<p style="text-align:center;"><strong>MEMES</strong></p>
-<form action="/finder">
-<p style="text-align:center">Поиск по коменту<input name="find"><button>Найти</button></p>
-</form>
-<form action="/add">
-    <button>Add Meme</button>
-        </form>
+<p style="text-align:center; margin-top: 5%;"><strong>MEMES</strong></p>
+<br>
+<p style="text-align: right; margin-right: 5%">Logged as {{session["username"]}}</p>
 
-    {% for line in lenta %}
-        <p style="text-align:center">id: {{line[0]}}, comment: {{line[2]}}, time: {{line[3]}} <a href="/deleted?id={{line[0]}}">Удалить</a></p>
-        <p style="text-align: center"><img src="{{line[1]}}"></p>
-        <br><br><br>
+<form style="text-align: center;" action="/logout">
+    <button class="button is-link is-outlined is-rounded">Log out</button>
+</form>
+<br>
+<form action="/add">
+    <button class="button is-link is-outlined is-rounded" style="margin-left:45%">Add Meme</button>
+</form>
+
+<br><br>
+<form action="/finder">
+    <div class="field has-addons" style="margin-left: 40%">
+  <div class="control">
+    <input  class="input" type="text" placeholder="Search text" name="find" >
+  </div>
+  <div class="control">
+    <a class="button is-link is-outlined">
+      Send
+    </a>
+  </div>
+</div>
+</form>
+<br><br>
+
+<br><br>
+
+{% for line in lenta %}
+<p style="text-align:center">id: {{line[0]}}, comment: {{line[2]}}, time: {{line[3]}}
+    {% for k in data %}
+    {% if k[1] == user %}
+    <a href="/deleted?id={{line[0]}}">Удалить</a>
+    {% endif %}
     {% endfor %}
+</p>
+<p style="text-align: center"><img src="{{line[1]}}"></p>
+{% for k in data %}
+{%if k[0] == line[4]%}
+<p style="text-align: center">{{k[1]}}</p>
+{% endif %}
+{% endfor %}
+<p>
+    {% for j in commment %}
+    {% if j[2] == line[0] %}
+<p style="margin-left: 5%">{{j[1]}}<a href="/del?id1={{j[0]}}">Удалить</a></p>
+{% endif %}
+{% endfor %}
+<br>
+<form method="post" action="/add_coment?id={{line[0]}}">
+    <div class="field has-addons" style="margin-left: 5%">
+  <div class="control">
+    <input  class="input" type="text" placeholder="Comment input" name="com1" >
+  </div>
+  <div class="control">
+    <a class="button is-link is-outlined">
+      Send
+    </a>
+  </div>
+</div>
+
+</form>
+</p>
+
+<br><br><br>
+{% endfor %}
 
 </body>
 </html>

@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Add Meme</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/person-male.png"
+          type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" crossorigin="anonymous">
+    <title>GoTo_people</title>
 </head>
 <body>
-    <form action="/add", method="post">
-    <p style="text-align:center">URL-изображения<input name="addurl"></p>
-    <p style="text-align:center">Comment(обязательный)<input name="addcom"></p>
-    <button>Добавить</button>
-    </form>
+    <p style="text-align:center">Добавить мем</p>
+    <br>
+<div style="width: 50%; margin-left: 25%"><form action="/add", method="post">
+    <p style="text-align:center">URL-изображения
+        <div class="field">
+  <div class="control">
+    <input class="input is-info" type="text" placeholder="Info input" name="addurl">
+  </div>
+</div></p>
+    <p style="text-align:center">Comment(обязательный)
+        <div class="field">
+  <div class="control">
+    <input class="input is-info" type="text" placeholder="Info input" name="addcom">
+  </div>
+</div></p>
+        <br>
+    <button class="button is-danger is-outlined" style="margin-left: 45%">Добавить</button>
+    </form></div>
+
 </body>
 </html>

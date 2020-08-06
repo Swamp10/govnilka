@@ -3,7 +3,7 @@ import time
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
-2
+
 conn = sqlite3.connect('BDann.db')
 c = conn.cursor()
 print("Write:")
